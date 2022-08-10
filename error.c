@@ -8,7 +8,7 @@
  */
 void open_error(char *f)
 {
-	fprintf(stderr, "Error: Can't open file $s\n", f);
+	fprintf(stderr, "Error: Can't open file %s\n", f);
 	exit(EXIT_FAILURE);
 }
 /**

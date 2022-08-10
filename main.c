@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	stack = NULL;
 
 	if (argc != 2)
-		usage_error(argv[1]);
+		usage_error();
 
 	fd = fopen(argv[1], "r");
 	if (!fd)
@@ -34,15 +34,14 @@ int main(int argc, char *argv[])
 		opcode = strtok(line, " \t\n");
 		if (!opcode)
 		{
-			line_number++;
-			continue
+			line_num++;
+			continue;
 		}
 		Arg.argument = strtok(NULL, " \t\n");
-		run_op(opcode, &stack, line_num);
+		get_opcode(opcode, &stack, line_num);
 		line_num++;
 	}
 	free(line);
-	free_stack(&stack);
 	fclose(fd);
 	exit(EXIT_SUCCESS);
 }

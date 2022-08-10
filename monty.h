@@ -52,6 +52,8 @@ typedef struct arg
 arg Arg;/*global variable of struct*/
 /*end of structs*/
 
+void open_error(char *f);
+void usage_error(void);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
@@ -59,7 +61,7 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
-int (*get_opcode(char *str))(stack_t **stack, unsigned int line_number);
+void get_opcode(char *opcode, stack_t **stack, unsigned int line_number);
 /*end of prototype functions*/
 
 #endif /* MONTY_H */
