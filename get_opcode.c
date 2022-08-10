@@ -1,26 +1,16 @@
 #include "monty.h"
-<<<<<<< HEAD
-
 /**
- * get_opcode - gets 
- * 
- * @str: string
- * @stack: pointer to head node
- * @line_number: current line number 
- */
-
-int (*get_opcode(char *str))(stack_t **stack, unsigned int line_number)
-{
-
-}
-=======
-/**
- * get_opcode - 
+ * get_opcode - function that finds opcode functions.
+ * @opcode: opcode command.
+ * @stack: the stack.
+ * @line_number: line number
+ *
+ * Return: Nothing.
  */
 void get_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	int i = 0;
-	instruction_t opcode_list[] = OPCODE;
+	instruction_t opcode_list[] = OPCODES; /*opcode macro in header*/
 
 	while (opcode_list[i].opcode)
 	{
@@ -34,5 +24,3 @@ void get_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
 }
-
->>>>>>> James

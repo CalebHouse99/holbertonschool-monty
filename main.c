@@ -16,18 +16,26 @@ int main(int argc, char *argv[])
 	FILE *fd;
 
 	stack = NULL;
+
+	if (argc != 2)
+		usage_error(argv[1]);
+
 	fd = fopen(argv[1], "r");
 	if (!fd)
-	{
-		fprint(stderr, "Error: can't open file %s\n", argv[1])
-			exit(EXIT_FAILURE);
-	}
+		open_error(argv[1]);
+	
 	while ((getline(&line, &size, fd)) != (-1))
 	{
 		if (*line == '\n')
 		{
 			line_num++;
 			continue;
+		}
+		opcode = strtok(line, " \t\n");
+		if (!opcode)
+		{
+			line_number++;
+			continue
 		}
 		Arg.argument = strtok(NULL, " \t\n");
 		run_op(opcode, &stack, line_num);
