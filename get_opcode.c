@@ -10,7 +10,16 @@
 void get_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	int i = 0;
-	instruction_t opcode_list[] = OPCODES; /*opcode macro in header*/
+	instruction_t opcode_list[] = {
+			{"push",push},
+			{"pall",pall},
+			{"pint",pint},
+			{"pop",pop},
+			{"swap",swap},
+			{"add",add},
+			{"nop",nop},
+			{NULL,NULL}
+		}
 
 	while (opcode_list[i].opcode)
 	{

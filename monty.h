@@ -13,19 +13,6 @@
 #include <ctype.h>
 /*end of library calls*/
 
-#define OPCODES\ //*macro for opcodes*\
-	{
-		{"push", push},			\
-		{"pall", pall},			\
-		{"pint", pint},			\
-		{"pop", pop},			\
-		{"swap", swap},			\
-		{"add", add},			\
-		{"nop", nop},			\
-		{NULL, NULL}			\
-	}
-/*end of macros*/
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
