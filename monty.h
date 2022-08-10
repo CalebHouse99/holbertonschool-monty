@@ -5,7 +5,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
+#include <stddef.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <ctype.h>
 /*end of library calls*/
+#define OPCODES /*macro for opcodes*\
+	{
+		{"push", push},			\
+		{"pall", pall},			\
+		{"pint", pint},			\
+		{"pop", pop},			\
+		{"swap", swap},			\
+		{"add", add},			\
+		{"nop", nop},			\
+		{NULL, NULL}			\
+	}
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,6 +53,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+<<<<<<< HEAD
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
@@ -45,5 +63,16 @@ void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 int (*get_opcode(char *str))(stack_t **stack, unsigned int line_number);
 /*end of prototype functions*/
+=======
+/**
+ * struct arg - Struct that holds value of argument to opcode
+ * @argument: value of argument.
+ */
+typedef struct arg
+{
+	char *argument;
+} arg;
+arg Arg;/*global variable of struct*/
+>>>>>>> James
 
 #endif /* MONTY_H */
