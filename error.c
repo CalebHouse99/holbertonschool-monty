@@ -18,6 +18,6 @@ void open_error(char *f)
  */
 void usage_error(void)
 {
-        fprintf(stderr, "USAGE: monty file\n");
-        exit(EXIT_FAILURE);
+	fprintf(stderr, "USAGE: monty file\n");
+	exit(EXIT_FAILURE);
 }
