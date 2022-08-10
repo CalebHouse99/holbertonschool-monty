@@ -5,7 +5,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
+#include <stddef.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <ctype.h>
 /*end of library calls*/
+#define OPCODES /*macro for opcodes*\
+	{
+		{"push", push},			\
+		{"pall", pall},			\
+		{"pint", pint},			\
+		{"pop", pop},			\
+		{"swap", swap},			\
+		{"add", add},			\
+		{"nop", nop},			\
+		{NULL, NULL}			\
+	}
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
@@ -45,5 +62,15 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * struct arg - Struct that holds value of argument to opcode
+ * @argument: value of argument.
+ */
+typedef struct arg
+{
+	char *argument;
+} arg;
+arg Arg;/*global variable of struct*/
 
 #endif /* MONTY_H */
