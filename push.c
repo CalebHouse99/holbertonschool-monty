@@ -4,7 +4,7 @@
  * push - adds to top of stack
  * @stack: to add to
  * @line_number: current line number
- * 
+ *
  * Return: void
  */
 
@@ -16,12 +16,13 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (new == NULL)
 		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 
 	if (*stack == NULL)
 	{
 		new->next = NULL;
 	}
-	else 
+	else
 	{
 		(*stack)->prev = new;
 		new->prev = NULL;
