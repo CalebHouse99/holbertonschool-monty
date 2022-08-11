@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	fd = fopen(argv[1], "r");
 	if (!fd)
 		open_error(argv[1]);
-	
+
 	while ((getline(&line, &size, fd)) != (-1))
 	{
 		if (*line == '\n')
@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
 		line_num++;
 	}
 	free(line);
+	free_stack(&stack);
 	fclose(fd);
 	exit(EXIT_SUCCESS);
 }

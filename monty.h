@@ -54,6 +54,7 @@ arg Arg;/*global variable of struct*/
 
 void open_error(char *f);
 void usage_error(void);
+void free_stack(stack_t **stack);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
