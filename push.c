@@ -28,10 +28,10 @@ void push(stack_t **stack, unsigned int line_number)
 		if ((isdigit(arg[i])) == 0 && arg[i] != '-')
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);	
+			exit(EXIT_FAILURE);
 		}
 	}
-	
+
 	convert = atoi(arg);
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
