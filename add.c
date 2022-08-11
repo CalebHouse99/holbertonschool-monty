@@ -9,12 +9,7 @@
 
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
-	int i;
-
-	for (i = 0; tmp != NULL; tmp = tmp->next, i++)
-		;
-	if (i < 0)
+	if ((*stack)->next == NULL || *stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
