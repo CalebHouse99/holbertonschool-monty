@@ -47,7 +47,7 @@ typedef struct instruction_s
  */
 typedef struct arg
 {
-        char *argument;
+				char *argument;
 } arg;
 arg Arg;/*global variable of struct*/
 /*end of structs*/
