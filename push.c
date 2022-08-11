@@ -19,6 +19,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (arg == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -33,7 +34,12 @@ void push(stack_t **stack, unsigned int line_number)
 	
 	convert = atoi(arg);
 	new = malloc(sizeof(stack_t));
-
+	if (new == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
 	new->n = convert;
 	new->prev = NULL;
 	new->next = *stack;
